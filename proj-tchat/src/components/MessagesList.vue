@@ -41,6 +41,7 @@ export default {
   list-style none
   height 36%
   overflow-y scroll
+  width 120%
   // list-style-type none
   // padding-top 6px
   // padding-left 13px

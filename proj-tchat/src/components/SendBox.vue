@@ -30,10 +30,10 @@ export default {
   },
   methods: {
     onFormSubmit () {
-        this.$emit('messageSent', this.input)
-        this.input = ''
+      this.$emit('messageSent', this.input)
+      this.input = ''
     }
-  },
+  }
 }
 </script>
 

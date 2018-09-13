@@ -4,7 +4,7 @@
     <div class="chatbox">
       <UserList/>
       <MessagesList/>
-      <SendBox/>
+      <SendBox @messageSent="onMessageSent" />
     </div>
   </div>
 </template>
@@ -22,7 +22,16 @@
       UserList,
       MessagesList,
       SendBox,
-    }
+    },
+    methods: {
+      onMessageSent (message) {
+        // store.messages.push(message)
+        this.$api.messageSend(message)
+      }
+    },
+    computed: {
+      messages: () => store.messages
+    },
   }
 </script>
 
