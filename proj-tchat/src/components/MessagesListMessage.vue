@@ -6,17 +6,21 @@
           {{ message.user.username }} {{message.created}}
         </span>
         <br>
-        <span id="messagetext">
-          {{ message.text }}
+        <span id="messagetext" v-bind:class="emotion">
+          {{ message.text }} {{ message.emotion }}
         </span>
       </li>
   </div>
 </template>
 
 <script>
+  import store from '../store'
   export default {
     name: 'messagesListMessage',
-    props: ['message']
+    props: ['message'],
+    computed: {
+      emotion: () => store.emotion
+    }
   }
 </script>
 
@@ -34,7 +38,30 @@
 
 .msg #messagetext
   color white
-  font-weight 400
+
+.neutre
+  font-family $FONT
+
+.joyeux
+  font-family 'Arial'
+  text-shadow 1px 1px 1px $GREEN
+
+.serieux
+  font-family 'Times New Roman'
+
+.murmure
+  font-family 'Baskerville'
   font-style italic
+
+.hurle
+  font-family $FONT
+  font-style italic
+  text-transform uppercase
+  font-size 70px
+  text-shadow 2px 4px 1px $BLUE
+  font-weight 800
+
+.vastefaire
+  font-family 'Wingdings'
 </style>
 

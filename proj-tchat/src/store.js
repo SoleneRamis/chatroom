@@ -15,8 +15,10 @@ const store = new Vue ({
                 store.error = data.message
             })
             this.$api.onMessage((data, emotion) => {
+                if(this.user && data.message.user.username == this.user.username) {
+                    data.message.emotion = this.emotion
+                } 
                 store.messages.push(data.message)
-                store.emotion = emotion
             })
             this.$api.onUsersUpdate(({ type, users, user }) => {
                 console.log(`${user.username} just ${type} the room`)

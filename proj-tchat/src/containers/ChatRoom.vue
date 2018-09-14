@@ -3,7 +3,7 @@
     <TheHeader></TheHeader>
     <div class="chatbox">
       <UserList/>
-      <MessagesList/>
+      <MessagesList :messages="messages"/>
       <SendBox @messageSent="onMessageSent" />
     </div>
   </div>
@@ -14,7 +14,7 @@
   import UserList from '../components/UserList'
   import MessagesList from '../components/MessagesList'
   import SendBox from '../components/SendBox'
-  
+  import store from '../store'
   export default {
     name: 'chatroom',
     components: {

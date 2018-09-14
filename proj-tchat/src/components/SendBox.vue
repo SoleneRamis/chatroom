@@ -6,12 +6,12 @@
         <input id="message" type="text" placeholder="Tapez votre message et choisissez votre émotion." v-model="input">
       </div>
       <div class="btn">
-        <div class="neutre">neutre</div>
-        <div class="joyeux">joyeux</div>
-        <div class="serieux">sérieux</div>
-        <div class="murmure">murmure</div>
-        <div class="hurle">hurle</div>
-        <div class="vastefaire">vas te faire ***</div>
+        <button class="neutre" @click="setEmotion('neutre')" >neutre</button>
+        <button class="joyeux"  @click="setEmotion('joyeux')">joyeux</button>
+        <button class="serieux"  @click="setEmotion('serieux')">sérieux</button>
+        <button class="murmure"  @click="setEmotion('murmure')">murmure</button>
+        <button class="hurle"  @click="setEmotion('hurle')">hurle</button>
+        <button class="vastefaire"  @click="setEmotion('vastefaire')">vas te faire ***</button>
       </div>
     </form>
     <div class="box"></div>
@@ -33,6 +33,10 @@
       onFormSubmit () {
         this.$emit('messageSent', this.input)
         this.input = ''
+      },
+
+      setEmotion(emotion) {
+        store.emotion = emotion
       }
     },
     computed: {
@@ -104,7 +108,7 @@
 .neutre
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 19px 37.5px
+  padding 19px 35.5px
   font-family $FONT
   color $BLUE
   font-weight 800
@@ -118,9 +122,8 @@
   border-left solid 1px $BLUE
   background-color $LIGHT-GRAY
   text-transform capitalize
-  padding 19px 38px
+  padding 19px 39px
   box-shadow none
-  padding 19px 40px
 
 .joyeux
   border-top solid 4px $BLUE
@@ -168,7 +171,7 @@
 .murmure
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 22px 29px
+  padding 22px 27px
   font-family $FONT
   color $BLUE
   font-weight 800
@@ -183,7 +186,7 @@
   font-style italic
   background-color $LIGHT-PINK
   text-transform lowercase
-  padding 23px 35px
+  padding 23px 33px
   z-index 1
   box-shadow none
   
