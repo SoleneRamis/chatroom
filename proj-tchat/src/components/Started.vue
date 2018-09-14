@@ -7,7 +7,7 @@
         <br>
         <div class="errorLog">
           {{ this.errorLog }}
-          {{this.error}}
+          {{ this.error }}
         </div>
         <br>
         <div class="log">

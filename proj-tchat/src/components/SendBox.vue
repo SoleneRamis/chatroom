@@ -8,7 +8,7 @@
       <div class="btn">
         <div class="neutre">neutre</div>
         <div class="joyeux">joyeux</div>
-        <div class="serieux">serieux</div>
+        <div class="serieux">sérieux</div>
         <div class="murmure">murmure</div>
         <div class="hurle">hurle</div>
         <div class="vastefaire">vas te faire ***</div>
@@ -20,27 +20,31 @@
 </template>
 
 <script>
+  import store from '../store'
 
-export default {
-  name: 'sendbox',
-  data () {
-    return {
-        input: ''
-    }
-  },
-  methods: {
-    onFormSubmit () {
-      this.$emit('messageSent', this.input)
-      this.input = ''
+  export default {
+    name: 'sendbox',
+    data () {
+      return {
+          input: ''
+      }
+    },
+    methods: {
+      onFormSubmit () {
+        this.$emit('messageSent', this.input)
+        this.input = ''
+      }
+    },
+    computed: {
+      emotion: () => store.emotion
     }
   }
-}
 </script>
 
 <style lang="stylus" scoped>
 .sendbox
   position relative
-  width 355px
+  width 397px
   height 400px
   top 213px
   left -30px
@@ -48,16 +52,16 @@ export default {
   z-index 4
 
 .box  
-  width 360px
+  width 393px
   position absolute
   top 38px
-  bottom 0
+  bottom -8px
   background-color white
   border solid 4px $BLUE
   z-index 3
   
 .boxshadow  
-  width 360px
+  width 382px
   position absolute
   top 30px
   left -8px
@@ -79,6 +83,7 @@ export default {
   color $LIGHT-PINK
   font-family $FONT
   font-weight 600
+  font-size 13px
   font-style italic
 
 ::placeholder
@@ -94,70 +99,135 @@ export default {
   flex-wrap wrap
   z-index 11
   left -5px
-  width 365px
+  width 385px
 
 .neutre
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 19px 35.5px
+  padding 19px 37.5px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
+  box-shadow 4px 8px 3px
+  z-index 12
+  
+.neutre:hover
+  border-left solid 1px $BLUE
+  background-color $LIGHT-GRAY
+  text-transform capitalize
+  padding 19px 38px
+  box-shadow none
+  padding 19px 40px
 
 .joyeux
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 22px 31.5px
+  padding 22px 33.5px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
+  box-shadow 8px 8px 3px
+  z-index 11
 
+.joyeux:hover
+  border-left solid 1px $BLUE
+  background-color $YELLOW
+  text-transform capitalize
+  padding 19px 38px
+  box-shadow none
+  padding 22px 35.5px
+  text-shadow 2px 2px 5px #ff0000
+  
 .serieux
   border-top solid 4px $BLUE
-  padding 19px 35px
+  padding 19px 41px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
+  box-shadow 12px 8px 3px
+  z-index 11
+
+.serieux:hover
+  font-family 'Times New Roman'
+  background-color $GREEN
+  text-transform capitalize
+  font-size 14px
+  padding 19px 45px
+  z-index 1
+  box-shadow none
 
 .murmure
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 22px 26px
+  padding 22px 29px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
+  box-shadow 4px 8px 3px
+  z-index 13
 
+.murmure:hover
+  font-family 'Baskerville'
+  font-style italic
+  background-color $LIGHT-PINK
+  text-transform lowercase
+  padding 23px 35px
+  z-index 1
+  box-shadow none
+  
 .hurle
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
-  padding 19px 36px
+  padding 19px 37px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
-
+  box-shadow 8px 8px 3px
+  z-index 11
+  
+.hurle:hover
+  font-family $FONT
+  font-style italic
+  background-color $PINK
+  // color white
+  font-size 20px
+  text-shadow 2px 2px 5px white
+  text-transform uppercase
+  padding 16px 23.5px
+  z-index 1
+  box-shadow none
+  
 .vastefaire
   border-top solid 4px $BLUE
-  padding 19px 10px
+  padding 19px 17px
   font-family $FONT
   color $BLUE
   font-weight 800
   font-style italic
   text-transform uppercase
   font-size 12px
+  box-shadow 14px 8px 3px
+  z-index 1
 
+.vastefaire:hover
+  background-color $ORANGE
+  font-family 'Wingdings'
+  width min-content
+  padding 2px 41.5px
+  box-shadow none
 </style>

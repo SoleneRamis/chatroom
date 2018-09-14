@@ -3,7 +3,7 @@
   <div class="messagesListMessage">
       <li class="msg">
         <span id="usermessage">
-          {{ message.user.username }}
+          {{ message.user.username }} {{message.created}}
         </span>
         <br>
         <span id="messagetext">
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-export default {
-  name: 'messagesListMessage',
-  props: ['message'],
-}
+  export default {
+    name: 'messagesListMessage',
+    props: ['message']
+  }
 </script>
 
 <style lang="stylus" scoped>
