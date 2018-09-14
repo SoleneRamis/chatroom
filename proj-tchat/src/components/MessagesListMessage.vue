@@ -6,9 +6,6 @@
           {{ message.user.username }}
         </span>
         <br>
-        <span class="emotion">
-          [{{message.emotion}}]
-        </span>
         <span id="messagetext" :class="emotion">
          {{ message.text }}
         </span>
