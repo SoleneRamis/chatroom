@@ -1,30 +1,25 @@
 <!-- /users list user/ -->
 <template>
   <div class="userslistuser">
-      <li v-bind:style="{background: this.activeColor}">
+      <li :style="styleColor">
           {{ user.username }}
       </li>
   </div>
 </template>
 
 <script>
-
-const colorRand = [
-  '#F8B5B8',
-  '#A4E7FF',
-  '#F9E383',
-  '#F37449',
-  '#99D18B',
-  '#A385BD',
-]
-
-export default {
-  name: 'userslistuser',
-  props: ['user'],
-  computed: {
-    activeColor: () => colorRand[Math.floor(Math.random()*6)]
-  },
-}
+  import store from '../store'  
+  export default {
+    name: 'userslistuser',
+    props: ['user'],
+    computed: {
+        styleColor () {
+          return this.user && {
+            backgroundColor: this.user.color
+        }
+      },
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>

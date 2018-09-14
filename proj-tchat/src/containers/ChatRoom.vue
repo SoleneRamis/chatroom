@@ -15,6 +15,7 @@
   import MessagesList from '../components/MessagesList'
   import SendBox from '../components/SendBox'
   import store from '../store'
+  
   export default {
     name: 'chatroom',
     components: {

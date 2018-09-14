@@ -6,12 +6,12 @@
         <input id="message" type="text" placeholder="Tapez votre message et choisissez votre émotion." v-model="input">
       </div>
       <div class="btn">
-        <button class="neutre" @click="setEmotion('neutre')" >neutre</button>
-        <button class="joyeux"  @click="setEmotion('joyeux')">joyeux</button>
-        <button class="serieux"  @click="setEmotion('serieux')">sérieux</button>
-        <button class="murmure"  @click="setEmotion('murmure')">murmure</button>
-        <button class="hurle"  @click="setEmotion('hurle')">hurle</button>
-        <button class="vastefaire"  @click="setEmotion('vastefaire')">vas te faire ***</button>
+        <button class="neutre" @click="setEmotion('neutre')">neutre</button>
+        <button class="joyeux" @click="setEmotion('joyeux')">joyeux</button>
+        <button class="serieux" @click="setEmotion('serieux')">sérieux</button>
+        <button class="murmure" @click="setEmotion('murmure')">murmure</button>
+        <button class="hurle" @click="setEmotion('hurle')">hurle</button>
+        <button class="vastefaire" @click="setEmotion('vastefaire')">vas te faire ***</button>
       </div>
     </form>
     <div class="box"></div>
@@ -105,6 +105,9 @@
   left -5px
   width 385px
 
+button 
+  outline none
+
 .neutre
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
@@ -189,7 +192,8 @@
   padding 23px 33px
   z-index 1
   box-shadow none
-  
+  border solid 2px $BLUE
+
 .hurle
   border-top solid 4px $BLUE
   border-right solid 4px $BLUE
@@ -201,7 +205,7 @@
   text-transform uppercase
   font-size 12px
   box-shadow 8px 8px 3px
-  z-index 11
+  z-index 10
   
 .hurle:hover
   font-family $FONT
@@ -214,6 +218,7 @@
   padding 16px 23.5px
   z-index 1
   box-shadow none
+  border solid 2px $BLUE
   
 .vastefaire
   border-top solid 4px $BLUE
@@ -233,4 +238,6 @@
   width min-content
   padding 2px 41.5px
   box-shadow none
+  border solid 2px $BLUE
+  
 </style>

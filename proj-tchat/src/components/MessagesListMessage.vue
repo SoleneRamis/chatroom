@@ -2,12 +2,15 @@
 <template>
   <div class="messagesListMessage">
       <li class="msg">
-        <span id="usermessage">
-          {{ message.user.username }} {{message.created}}
+        <span id="usermessage" :style="styleColor">
+          {{ message.user.username }}
         </span>
         <br>
-        <span id="messagetext" v-bind:class="emotion">
-          {{ message.text }} {{ message.emotion }}
+        <span class="emotion">
+          [{{message.emotion}}]
+        </span>
+        <span id="messagetext" :class="emotion">
+         {{ message.text }}
         </span>
       </li>
   </div>
@@ -19,22 +22,32 @@
     name: 'messagesListMessage',
     props: ['message'],
     computed: {
-      emotion: () => store.emotion
-    }
+      user () {
+      return store.users.find((user) => user.username === this.message.user.username)
+      },
+      emotion () {
+        return this.message.emotion
+      },
+      styleColor () {
+        return {
+          backgroundColor: this.user.color
+        }
+      }
+    },
   }
 </script>
 
 <style lang="stylus" scoped>
 .messagesListMessage
-  position relative
+  position relative 
   margin-bottom 20px
 
 .msg #usermessage
   text-transform uppercase
   font-family $FONT
-  color $BLUE
   font-weight 800
   font-style italic
+  padding 0px 4px
 
 .msg #messagetext
   color white
@@ -63,5 +76,9 @@
 
 .vastefaire
   font-family 'Wingdings'
+
+.emotion
+  font-size 10px
+  margin-right 6px
 </style>
 

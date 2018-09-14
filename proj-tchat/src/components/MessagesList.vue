@@ -25,30 +25,18 @@ export default {
 <style lang="stylus" scoped>
 .messagelist
   position relative
-  width 384px
-  height 347px
-  top 60px
-  left 25px
+  width 650px
+  height 581px
+  top 5px
+  left -112px
   background-color transparent
   z-index 4
+  overflow-y scroll
 
 .messages
-  // text-transform uppercase
-  // font-family $FONT
-  // font-weight 800
-  position relative
   z-index 11
   list-style none
-  height 36%
-  overflow-y scroll
-  width 120%
-  // list-style-type none
-  // padding-top 6px
-  // padding-left 13px
-  // text-align center
-  // width 42%
-  // height 81%
-  // overflow-y scroll
+  width 80%
 </style>
 
 
